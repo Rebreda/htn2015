@@ -4,7 +4,6 @@
     {{>nav title="Search"}}
 
     <div class="content-scrollable">
-      {{>maps}}
       <div class="list-activities {{#unless ready}}loading{{/unless}}">
         {{#if ready}}
           {{#each activities}}
@@ -22,6 +21,7 @@
           </div>
         {{/if}}
       </div>
+      {{>maps}}
     </div>
   </div>
 </template>
