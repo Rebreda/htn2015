@@ -1,9 +1,10 @@
 <template name="feed">
   <div class="page whats-cooking">
 
-    {{>nav title="What's Cooking"}}
+    {{>nav title="Search"}}
 
     <div class="content-scrollable">
+      {{>maps}}
       <div class="list-activities {{#unless ready}}loading{{/unless}}">
         {{#if ready}}
           {{#each activities}}

@@ -1,7 +1,7 @@
 <template name="recipe">
 
   <div class="page recipe {{activeTabClass}}">
-    {{#nav title='Recipe' black=true back=true}}
+    {{#nav title='Item' black=true back=true}}
       {{#if bookmarked}}
         <a href="#" class="nav-item js-remove-bookmark bookmarked"><span class="icon-bookmark"></span></a>
       {{else}}
@@ -21,23 +21,23 @@
       </div>
 
       <div class="btns-group">
-        <a class="btn-secondary {{#if isActiveTab 'make'}}active{{/if}} {{#if isActiveTab 'recipe'}}no-state{{/if}} js-show-recipe">Make It</a>
+        <a class="btn-secondary {{#if isActiveTab 'make'}}active{{/if}} {{#if isActiveTab 'recipe'}}no-state{{/if}} js-show-recipe">Information</a>
         <a class="btn-secondary {{#if isActiveTab 'feed'}}active{{/if}} {{#if isActiveTab 'recipe'}}no-state{{/if}} js-show-feed">Pictures</a>
       </div>
     </div>
 
 
     <div class="content-scrollable static-nav make-scrollable">
-      <a class="btn-tertiary js-share"><span class="icon-camera"></span> Share that you made this</a>
+      <!-- <a class="btn-tertiary js-share"><span class="icon-camera"></span> Share that you made this</a> -->
 
-      <h2 class="list-title">Ingredients</h2>
+      <h2 class="list-title">About this listing</h2>
       <ul class="list-ingredients">
         {{#each ingredients}}
           <li class="item-ingredient">{{this}}</li>
         {{/each}}
       </ul>
 
-      <h2 class="list-title">Directions</h2>
+      <h2 class="list-title">Contact Info</h2>
       <ol class="list-directions">
         {{#each directions}}
           <li class="item-direction">
@@ -48,11 +48,12 @@
           ...
           </li>
       </ol>
-      <a href="{{source.url}}" target="_blank" class="btn-primary js-open">See full recipe on {{source.name}}</a>
+      <!-- <a href="{{source.url}}" target="_blank" class="btn-primary js-open">See full recipe on {{source.name}}</a> -->
+      {{>maps}}
     </div>
 
     <div class="content-scrollable static-nav feed-scrollable">
-      <a class="btn-tertiary js-share"><span class="icon-camera"></span> Share that you made this</a>
+      <!-- <a class="btn-tertiary js-share"><span class="icon-camera"></span> Share that you made this</a> -->
       <div class="list-activities">
         {{#each activities}}
           {{> activity}}

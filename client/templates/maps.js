@@ -3,7 +3,8 @@ Template.maps.helpers({
         if (GoogleMaps.loaded()) {
             return {
                 center: new google.maps.LatLng(_lat.get(), _lon.get()),
-                zoom: 8
+                zoom: 8,
+                scrollwheel: false
             };
         }
     }
