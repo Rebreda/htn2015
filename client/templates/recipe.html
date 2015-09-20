@@ -4,7 +4,7 @@
     {{#nav title='Item' black=true back=true}}
       {{#if bookmarked}}
         <a href="#" class="nav-item js-remove-bookmark bookmarked"><span class="icon-bookmark"></span></a>
-      {{else}}
+      {{else }}
         <a href="#" class="nav-item js-add-bookmark"><span class="icon-bookmark-hollow"></span></a>
       {{/if}}
       <a href="#" class="nav-item js-share"><span class="icon-camera"></span></a>
@@ -46,7 +46,7 @@
           <a class="btn-primary">SEND EMAIL</a>
       </ul>
 
-      <h2 class="list-title">Purchase Now</h2>
+      <h2 class="list-title">Payment Options</h2>
       <li class="list-directions">
           <form action="https://www.paypal.com/cgi-bin/webscr"  method="post" target="_blank">
             <input type="hidden" name="cmd" value="_s-xclick">
@@ -70,8 +70,8 @@
           {{> activity}}
         {{else}}
           <div class="wrapper-message">
-            <div class="title-message">No feed activity yet</div>
-            <div class="subtitle-message">Be the first to share that you made this recipe. <a class="js-share">Share now</a></div>
+            <div class="title-message">No pictures added</div>
+            <div class="subtitle-message"><a class="js-share">Share this post now</a></div>
           </div>
         {{/each}}
       </div>
