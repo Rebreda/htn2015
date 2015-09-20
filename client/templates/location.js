@@ -1,53 +1,4 @@
 var eData = [{
-    "title": "iPhone 5c - Various Colours",
-    "description": "Perfect for any novice tech guru. This is the must have, and its cheap.",
-    "loc": {
-        "lat": 43.434751,
-        "lon": -80.538230
-    },
-    "pictures": {
-        "pic1": "https://s16-us2.ixquick.com/cgi-bin/serveimage?url=http%3A%2F%2Fwww.optimaitalia.com%2Fblog%2Fwp-content%2Fuploads%2F2012%2F12%2FiPhone-56.jpg&sp=bf22839b71d2a8edb58c33b483bed535",
-        "pic2": "http://i.imgur.com/PlbDu4e.jpg"
-    },
-    "filters": ["phone", "electronics"],
-    "price": "$285",
-    "phone": "(234) 567 8921",
-    "name": "Andrew Hou",
-    "email": "myEmail@losoc.co"
-}, {
-    "title": "3TB HDD - Refurbished.",
-    "description": "Stores thousands of images and songs. Selling like hot cakes so grab one fast. ",
-    "loc": {
-        "type": "Point",
-        "lat": 43.464616,
-        "lon": -80.538910
-    },
-    "pictures": {
-        "pic1": "http://i.ebayimg.com/00/s/ODAwWDU5NA==/z/oDoAAOSwEetV~hWG/$_27.JPG",
-        "pic2": "http://i.imgur.com/PlbDu4e.jpg"
-    },
-    "filters": ["phone", "electronics"],
-    "price": "$90",
-    "phone": "(234) 567 8921",
-    "name": "Andrew Hou",
-    "email": "myEmail@losoc.co"
-}, {
-    "title": "Anroid Nexus 5.",
-    "description": "Sick new iphone 5. Like legit dope. Hit me up a text or email or something. I just want to talk 2 someome. ",
-    "loc": {
-        "lat": 43.454555,
-        "lon": -80.538130
-    },
-    "pictures": {
-        "pic1": "https://s16-us2.ixquick.com/cgi-bin/serveimage?url=http%3A%2F%2Fwww.smartphonenet.nl%2Fwp-content%2Fuploads%2F2014%2F04%2Flg-nexus-5.png&sp=7f288f0198c438b76d4753b18e76476c",
-        "pic2": "http://i.imgur.com/PlbDu4e.jpg"
-    },
-    "filters": ["phone", "electronics"],
-    "price": "$80",
-    "phone": "(905) 555 5555",
-    "name": "Andrew Hou",
-    "email": "myEmail@losoc.co"
-}, {
     "title": "Asus Zenbook UX501",
     "description": "An easy buy, especially since the price is the lowest ever seen.",
     "loc": {
@@ -63,45 +14,8 @@ var eData = [{
     "phone": "(905) 555 5555",
     "name": "Andrew Hou",
     "email": "myEmail@losoc.co"
-}, {
-    "title": "Blackberry.",
-    "description": "Sick new iphone 5. Like legit dope. Hit me up a text or email or something. I just want to talk 2 someome. ",
-    "loc": {
-        "lat": 43.475751,
-        "lon": -80.548230
-    },
-    "pictures": {
-        "pic1": "https://s15-us2.ixquick.com/cgi-bin/serveimage?url=http%3A%2F%2F4.bp.blogspot.com%2F-iUHwllu1x80%2FUQ0vitpAYII%2FAAAAAAAAIYE%2Fc4uojtvx0sg%2Fs1600%2Fblackberry-q10-phone-images.jpg&sp=bc098e1a0aca62748f483860e7abf129",
-        "pic2": "http://i.imgur.com/PlbDu4e.jpg"
-    },
-    "filters": ["phone", "electronics"],
-    "price": "$80",
-    "phone": "(234) 567 8921",
-    "name": "Andrew Hou",
-    "email": "myEmail@losoc.co"
-}, {
-    "title": "Brand New In Box - iPhone 5s.",
-    "description": "A slick looking, great feeling power house of a phone. Contact  for more details.",
-    "loc": {
-        "lat": 43.424751,
-        "lon": -80.518230
-    },
-    "pictures": {
-        "pic1": "https://s16-us2.ixquick.com/cgi-bin/serveimage?url=http%3A%2F%2Fwww.optimaitalia.com%2Fblog%2Fwp-content%2Fuploads%2F2012%2F12%2FiPhone-56.jpg&sp=bf22839b71d2a8edb58c33b483bed535",
-        "pic2": "http://i.imgur.com/PlbDu4e.jpg"
-    },
-    "filters": ["phone", "electronics"],
-    "price": "$80",
-    "phone": "(234) 567 8921",
-    "name": "Andrew Hou",
-    "email": "myEmail@losoc.co"
 }]
-
-Template.maps.prods = function () {
-    return eData;
-}
-
-Template.maps.rendered = function () {
+Template.location.rendered = function () {
     // When the window has finished loading create our google map below
     google.maps.event.addDomListener(window, 'load', init);
 
@@ -116,7 +30,7 @@ Template.maps.rendered = function () {
             zoom: 16,
             disableDefaultUI: true,
             // The latitude and longitude to center the map (always required)
-            center: new google.maps.LatLng(43.474973, -80.546381), // New York
+            center: new google.maps.LatLng(43.474751, -80.538230), // New York
 
             // How you would like to style the map. 
             // This is where you would paste any style found on Snazzy Maps.
@@ -225,7 +139,7 @@ Template.maps.rendered = function () {
         // Let's also add a marker while we're at it
         for (var i = 0; i < eData.length; i++) {
             console.log(eData.length);
-            var materialString = '<div class="card">' + '<div class="image">' + '<div id="item-title" class="title">' + eData[i].title + '</div>' + '</div>' + '<div class="action"> <a href="' + 'http://www.cnn.com/' + '">Go To Item</a> | <a href="' + '/profile' + '">Seller Data</a></div></div>';
+            var materialString = '<div class="card">' + '<div class="image">' + '<span id="item-title" class="title">' + eData[i].title + '</span>' + '</div>' + '<div class="action"> <a href="' + 'http://www.cnn.com/' + '">Go To Item</a> <a href="' + '/profile' + '">Seller Data</a></div></div>';
             var marker = new google.maps.Marker({
                 position: new google.maps.LatLng(eData[i].loc.lat, eData[i].loc.lon),
                 map: map,
@@ -237,11 +151,23 @@ Template.maps.rendered = function () {
                 map: map,
                 content: materialString,
                 position: new google.maps.LatLng(eData[i].loc.lat, eData[i].loc.lon),
-                backgroundColor: '#fff',
-                minHeight: 50,
-                maxHeight: 50,
+                shadowStyle: 0,
+                padding: 0,
+                margin: 0,
+                backgroundColor: 'rgba(57,57,57, 0.0)',
+                borderRadius: 5,
+                arrowSize: 10,
+                borderWidth: 0,
+                borderColor: '#2c2c2c',
+                disableAutoPan: true,
                 hideCloseButton: true,
-                maxWidth: 300
+                arrowPosition: 50,
+                backgroundClassName: 'transparent',
+                arrowStyle: 0,
+                arrowSize: 15,
+                minHeight: 250,
+                maxHeight: 400,
+                maxWidth: 300,
             });
 
             marker.addListener('click', function () {
@@ -250,11 +176,13 @@ Template.maps.rendered = function () {
 
         }
         map.addListener('click', function () {
-            // 	    infowindow.close();
+            //      infowindow.close();
             marker.info.close();
         });
 
     }
 }
 
-//location.reload();
+Template.location.prods = function () {
+    return eData;
+}
