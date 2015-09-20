@@ -1,13 +1,61 @@
 <template name="profile">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
   <div class="page about">
     {{> nav title='Profile' black=true}}
 
     <div class="content-scrollable">
+    	<div class="profile-hero">
+	    	<div class="profile-logo">
+				<img src="http://i.imgur.com/oS7xuQO.jpg"/>
+	    	</div>
+	    	
+	    	<div class="profile-name">
+				<h2>Victoria's Wardrobe</h2>
+	    	</div>
+	    	
+    	</div>
+    	
+    	<div class="profile-accounts">
+	    	<div class="row">
+		    	<h2>Accounts</h2>
+	    	</div>
+	    	
+	    	<div class="row">
+		    	<i class="fa fa-facebook-official item1"></i> 
+		    	<span class="item2">Facebook</span>
+		    	<button class="button success item3"><i class="fa fa-check green"></i> Victoria's Wardrobe</button>
+	    	</div>
+	    	
+	    	<div class="row">		    	
+		    	<i class="fa fa-cc-paypal item1"></i> 
+		    	<span class="item2">Paypal  </span>
+		    	<button class="button success item3"><i class="fa fa-check green"></i> info@vicfashion.com</button>
+	    	</div>
+	    	
+	    	<div class="row">
+				<i class="fa fa-btc item1"></i> 
+				<span class="item2">Coinbase</span>
+		    	<button class="button inactive item3">Login</button>
+	    	</div>
+		    	
+		    <div class="row">
+		    	<i class="fa fa-dollar item1"></i>
+		    	<span class="item2">QuickBooks</span>
+		    	<button class="button inactive item3">Authorize</button>
+		    </div>
+    	</div>
+ 
+      
+      
+<!--
       <div class="bg-image about">
         <h1 class="title-about">
           <img src="img/app/title-about.svg" alt="Go Local"/>
         </h1>
       </div>
+-->
+<!--
       {{#if currentUser}}
           {{currentUser.services.facebook.name}} -
           {{currentUser.services.facebook.gender}}
@@ -15,19 +63,96 @@
       {{else}}
           <button id="facebook-login" class="btn btn-default"> Login with Facebook</button>
       {{/if}}
-    
-      <!-- <div class="description-about">
-        <p>Be a local wherever you go. Connect to Local Market’s community to get the latest news, hand-picked recipes, and share with other locals. This season's recipes were chosen by San Francisco chefs Colin Kull of <a href="http://www.rangesf.com/" target="_blank" class="js-open">Range</a>, Laurie Ellen Pellicano of <a href="http://www.tartinebakery.com/" target="_blank" class="js-open">Tartine Bakery</a>, and Ren Rossini of <a href="http://www.fattedcalf.com/"  target="_blank" class="js-open">Fatted Calf</a>.</p>
+-->
+<!--
 
-        <p>Local Market was made by <a href="http://percolatestudio.com" target="_blank" class="js-open">Percolate Studio</a> as an example of a cross platform mobile app built in <a href="https://www.meteor.com" target="_blank" class="js-open">Meteor</a>. The entire app is less than 1,000 lines of JavaScript. View the source on <a href="https://github.com/meteor/meteor/tree/devel/examples/localmarket" target="_blank" class="js-open">GitHub</a>.</p>
-      </div> -->
+		<div class="user-details">
+			<div class="row">
+		    	<h2 class="fa fa-history fa-3x"></h2>
+	    	</div>
+		</div>
+    
+-->
+    	<div class="user-details">
+	    	<div class="row">
+		    	<h2 class="fa fa-book fa-3x"></h2>
+	    	</div>
+		
+	    	
+	    	<div class="row">
+		    	<h2>Your Losocco Story</h2>
+	    	</div>
+	    	<div class="row">
+		    	<span class="detail-label">Losocco Member</span>
+		    	<span class="detail">since August 7, 2015</span>
+	    	</div>
+	    	
+	    	<div class="row">
+		    	<span class="detail-label">Seller Rating</span>
+		    	<span class="detail"><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star-half gold"></i>4.3</span>
+	    	</div>
+	    	
+	    	<div class="row">
+		    	<span class="detail-label">Description</span>
+		    	<span class="detail">KW's best place to find hipster clothing since 1995.</span>
+	    	</div>
+	    	
+	    	<div class="row">
+		    	<span class="detail-label">Local Purchases</span>
+		    	<span class="detail">6</span>
+	    	</div>
+	    	
+	    	<div class="row">
+		    	<span class="detail-label">Shipping Savings</span>
+		    	<span class="detail">$84.72</span>
+	    	</div>
+    	</div>
+    	
+    	
+    	
+    	
+    	
+    	
+    	<div id="intuit" class="user-details">
+	    	
+	    	<div class="row">
+		    	<h2 class="fa fa-line-chart fa-3x"></h2>
+	    	</div>
+	    	
+	    	<div class="row">
+		    	<h2>Sales Success</h2>
+	    	</div>
+	    	
+	    	<div class="row">
+		    	<h4>via Intuit QuickBooks</h4>
+	    	</div>
+	    	
+	    	<div class="row">
+		    	<span class="detail-label">Monthly Revenue</span>
+		    	<span class="detail">$1,327.48</span>
+	    	</div>
+	    	
+	    	<div class="row">
+		    	<span class="detail-label">Average Sale Price</span>
+		    	<span class="detail">$68.32</span>
+	    	</div>
+	    	
+	    	<div class="row">
+		    	<span class="detail-label">Monthly Transactions</span>
+		    	<span class="detail">15 <span class="green"><i class="fa fa-thumbs-o-up green"></i>2 more than last month</span></span>
+	    	</div>
+	    	
+	    	
+	    	<div class="row">
+		    	<span class="detail-label">Last Transaction</span>
+		    	<span class="detail">Sept 14, 2015<br/>
+		    						Flanel Dropcloth, $48.76<br/>
+		    						George Paxton<br/>
+		    						Streetsville, ON<br/>
+		    						VISA, **** **** **** 9726</span>
+	    	</div>   	
+    	</div>
 
     </div>
-      {{#if currentUser}}
-          <button id="logout" class="btn-primary" target="_blank">Logout</button>
-      {{else}}
-          <button id="facebook-login" class="btn-primary" target="_blank">Sign In With Facebook</button>
-      {{/if}}
-    
   </div>
 </template>
