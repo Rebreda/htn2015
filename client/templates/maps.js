@@ -1,232 +1,117 @@
-// Template.maps.helpers({
-//     mapOptions: function () {
-//         if (GoogleMaps.loaded()) {
-//             return {
-//                 center: new google.maps.LatLng(_lat.get(), _lon.get()),
-//                 zoom: 11,
-
-//                 // The latitude and longitude to center the map (always required)
-//                 center: new google.maps.LatLng(40.6700, -73.9400), // New York
-
-//                 // How you would like to style the map. 
-//                 // This is where you would paste any style found on Snazzy Maps.
-//                 styles: [{
-//                     "featureType": "landscape.man_made",
-//                     "elementType": "geometry",
-//                     "stylers": [{
-//                         "color": "#f7f1df"
-//                         }]
-//                     }, {
-//                     "featureType": "landscape.natural",
-//                     "elementType": "geometry",
-//                     "stylers": [{
-//                         "color": "#d0e3b4"
-//                         }]
-//                     }, {
-//                     "featureType": "landscape.natural.terrain",
-//                     "elementType": "geometry",
-//                     "stylers": [{
-//                         "visibility": "off"
-//                         }]
-//                     }, {
-//                     "featureType": "poi",
-//                     "elementType": "labels",
-//                     "stylers": [{
-//                         "visibility": "off"
-//                         }]
-//                     }, {
-//                     "featureType": "poi.business",
-//                     "elementType": "all",
-//                     "stylers": [{
-//                         "visibility": "off"
-//                         }]
-//                     }, {
-//                     "featureType": "poi.medical",
-//                     "elementType": "geometry",
-//                     "stylers": [{
-//                         "color": "#fbd3da"
-//                         }]
-//                     }, {
-//                     "featureType": "poi.park",
-//                     "elementType": "geometry",
-//                     "stylers": [{
-//                         "color": "#bde6ab"
-//                         }]
-//                     }, {
-//                     "featureType": "road",
-//                     "elementType": "geometry.stroke",
-//                     "stylers": [{
-//                         "visibility": "off"
-//                         }]
-//                     }, {
-//                     "featureType": "road",
-//                     "elementType": "labels",
-//                     "stylers": [{
-//                         "visibility": "on"
-//                         }]
-//                     }, {
-//                     "featureType": "road.highway",
-//                     "elementType": "geometry.fill",
-//                     "stylers": [{
-//                         "color": "#ffe15f"
-//                         }]
-//                     }, {
-//                     "featureType": "road.highway",
-//                     "elementType": "geometry.stroke",
-//                     "stylers": [{
-//                         "color": "#efd151"
-//                         }]
-//                     }, {
-//                     "featureType": "road.arterial",
-//                     "elementType": "geometry.fill",
-//                     "stylers": [{
-//                         "color": "#ffffff"
-//                         }]
-//                     }, {
-//                     "featureType": "road.local",
-//                     "elementType": "geometry.fill",
-//                     "stylers": [{
-//                         "color": "black"
-//                         }]
-//                     }, {
-//                     "featureType": "transit.station.airport",
-//                     "elementType": "geometry.fill",
-//                     "stylers": [{
-//                         "color": "#cfb2db"
-//                         }]
-//                     }, {
-//                     "featureType": "water",
-//                     "elementType": "geometry",
-//                     "stylers": [{
-//                         "color": "#a2daf2"
-//                         }]
-//                     }],
-//                 scrollwheel: false
-//             };
-//         }
-//     }
-// });
-
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, showError);
-    } else {
-        console.log("Geolocation is not supported by this browser.");
-    }
-}
-
-
-function showError(error) {
-    switch (error.code) {
-    case error.PERMISSION_DENIED:
-        console.log("User denied the request for Geolocation.");
-        break;
-    case error.POSITION_UNAVAILABLE:
-        console.log("Location information is unavailable.");
-        break;
-    case error.TIMEOUT:
-        console.log("The request to get user location timed out.");
-        break;
-    case error.UNKNOWN_ERROR:
-        console.log("An unknown error occurred.");
-        break;
-    }
-}
-
-function showPosition(position) {
-    _lat.set(position.coords.latitude);
-    _lon.set(position.coords.longitude);
-}
-
-_lat = {
-    current: 0,
-    dep: new Deps.Dependency,
-    get: function () {
-        this.dep.depend();
-
-        if (this.current === 0) {
-            getLocation();
-        }
-
-        return this.current;
+var eData = [{
+    "title": "iPhone 5c - Various Colours",
+    "description": "Perfect for any novice tech guru. This is the must have, and its cheap.",
+    "loc": {
+        "lat": 43.434751,
+        "lon": -80.538230
     },
-    set: function (value) {
-        this.current = value;
-        this.dep.changed();
-        Deps.flush();
-        return this.current;
-    }
-};
-
-_lon = {
-    current: 0,
-    dep: new Deps.Dependency,
-    get: function () {
-        this.dep.depend();
-
-        if (this.current === 0) {
-            getLocation();
-        }
-
-        return this.current;
+    "pictures": {
+        "pic1": "https://s16-us2.ixquick.com/cgi-bin/serveimage?url=http%3A%2F%2Fwww.optimaitalia.com%2Fblog%2Fwp-content%2Fuploads%2F2012%2F12%2FiPhone-56.jpg&sp=bf22839b71d2a8edb58c33b483bed535",
+        "pic2": "http://i.imgur.com/PlbDu4e.jpg"
     },
-    set: function (value) {
-        this.current = value;
-        this.dep.changed();
-        Deps.flush();
-        return this.current;
-    }
-};
+    "filters": ["phone", "electronics"],
+    "price": "$285",
+    "phone": "(234) 567 8921",
+    "name": "Andrew Hou",
+    "email": "myEmail@losoc.co"
+}, {
+    "title": "3TB HDD - Refurbished.",
+    "description": "Stores thousands of images and songs. Selling like hot cakes so grab one fast. ",
+    "loc": {
+        "type": "Point",
+        "lat": 43.464616,
+        "lon": -80.538910
+    },
+    "pictures": {
+        "pic1": "http://i.ebayimg.com/00/s/ODAwWDU5NA==/z/oDoAAOSwEetV~hWG/$_27.JPG",
+        "pic2": "http://i.imgur.com/PlbDu4e.jpg"
+    },
+    "filters": ["phone", "electronics"],
+    "price": "$90",
+    "phone": "(234) 567 8921",
+    "name": "Andrew Hou",
+    "email": "myEmail@losoc.co"
+}, {
+    "title": "Anroid Nexus 5.",
+    "description": "Sick new iphone 5. Like legit dope. Hit me up a text or email or something. I just want to talk 2 someome. ",
+    "loc": {
+        "lat": 43.454555,
+        "lon": -80.538130
+    },
+    "pictures": {
+        "pic1": "https://s16-us2.ixquick.com/cgi-bin/serveimage?url=http%3A%2F%2Fwww.smartphonenet.nl%2Fwp-content%2Fuploads%2F2014%2F04%2Flg-nexus-5.png&sp=7f288f0198c438b76d4753b18e76476c",
+        "pic2": "http://i.imgur.com/PlbDu4e.jpg"
+    },
+    "filters": ["phone", "electronics"],
+    "price": "$80",
+    "phone": "(234) 567 8921",
+    "name": "Andrew Hou",
+    "email": "myEmail@losoc.co"
+}, {
+    "title": "Intel Powered Dell",
+    "description": "An easy buy, especially since the price is the lowest ever seen.",
+    "loc": {
+        "lat": 43.474751,
+        "lon": -80.538230
+    },
+    "pictures": {
+        "pic1": "http://i.ebayimg.com/00/s/MzAwWDMwMA==/z/fpkAAOSwEetV~hO7/$_27.JPG",
+        "pic2": "http://i.imgur.com/PlbDu4e.jpg"
+    },
+    "filters": ["phone", "electronics"],
+    "price": "$80",
+    "phone": "(234) 567 8921",
+    "name": "Andrew Hou",
+    "email": "myEmail@losoc.co"
+}, {
+    "title": "NEW COOL SWAG PHONE.",
+    "description": "Sick new iphone 5. Like legit dope. Hit me up a text or email or something. I just want to talk 2 someome. ",
+    "loc": {
+        "lat": 43.475751,
+        "lon": -80.548230
+    },
+    "pictures": {
+        "pic1": "https://s15-us2.ixquick.com/cgi-bin/serveimage?url=http%3A%2F%2F4.bp.blogspot.com%2F-iUHwllu1x80%2FUQ0vitpAYII%2FAAAAAAAAIYE%2Fc4uojtvx0sg%2Fs1600%2Fblackberry-q10-phone-images.jpg&sp=bc098e1a0aca62748f483860e7abf129",
+        "pic2": "http://i.imgur.com/PlbDu4e.jpg"
+    },
+    "filters": ["phone", "electronics"],
+    "price": "$80",
+    "phone": "(234) 567 8921",
+    "name": "Andrew Hou",
+    "email": "myEmail@losoc.co"
+}, {
+    "title": "Brand New In Box - iPhone 5s.",
+    "description": "A slick looking, great feeling power house of a phone. Contact  for more details.",
+    "loc": {
+        "lat": 43.424751,
+        "lon": -80.518230
+    },
+    "pictures": {
+        "pic1": "https://s16-us2.ixquick.com/cgi-bin/serveimage?url=http%3A%2F%2Fwww.optimaitalia.com%2Fblog%2Fwp-content%2Fuploads%2F2012%2F12%2FiPhone-56.jpg&sp=bf22839b71d2a8edb58c33b483bed535",
+        "pic2": "http://i.imgur.com/PlbDu4e.jpg"
+    },
+    "filters": ["phone", "electronics"],
+    "price": "$80",
+    "phone": "(234) 567 8921",
+    "name": "Andrew Hou",
+    "email": "myEmail@losoc.co"
+}]
+Template.maps.rendered = function () {
+    // When the window has finished loading create our google map below
+    google.maps.event.addDomListener(window, 'load', init);
 
-// Template.body.onCreated(function() {
-//   // We can use the `ready` callback to interact with the map API once the map is ready.
-//   GoogleMaps.ready('exampleMap', function(map) {
-//     // Add a marker to the map once it's ready
-//     var marker = new google.maps.Marker({
-//       position: map.options.center,
-//       map: map.instance
-//     });
-//   });
-// });
+    var dd = eData;
+    console.log(eData);
 
-// //Template.mapPostsList.rendered = function () {
-// //    var mapOptions = {
-// //        zoom: 12,
-// //        mapTypeId: google.maps.MapTypeId.ROADMAP
-// //    };
-// //
-// //    map = new google.maps.Map(document.getElementById("map-canvas"),
-// //        mapOptions);
-// //
-// //    var p2 = Session.get('location');
-// //
-// //    map.setCenter(new google.maps.LatLng(p2.lat, p2.lng));
-// //    var marker = new google.maps.Marker({
-// //        position: new google.maps.LatLng(p2.lat, p2.lng),
-// //        title: 'Meine Position',
-// //        icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
-// //    });
-// //    marker.setMap(map);
-// //
-// //    Session.set('map', true);
-// //};
-
-
-if (Meteor.isClient) {
-  Meteor.startup(function() {
-    GoogleMaps.load();
-  });
-
-  Template.maps.helpers({
-    exampleMapOptions: function() {
-      // Make sure the maps API has loaded
-    if (GoogleMaps.loaded()) {
-        return {
-            center: new google.maps.LatLng(_lat.get(), _lon.get()),
-            zoom: 11,
-
+    function init() {
+        // Basic options for a simple Google Map
+        // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+        var mapOptions = {
+            // How zoomed in you want the map to start at (always required)
+            zoom: 16,
+            disableDefaultUI: true,
             // The latitude and longitude to center the map (always required)
-            center: new google.maps.LatLng(40.6700, -73.9400), // New York
+            center: new google.maps.LatLng(43.474973, -80.546381), // New York
 
             // How you would like to style the map. 
             // This is where you would paste any style found on Snazzy Maps.
@@ -235,106 +120,150 @@ if (Meteor.isClient) {
                 "elementType": "geometry",
                 "stylers": [{
                     "color": "#f7f1df"
-                    }]
-                }, {
+                }]
+            }, {
                 "featureType": "landscape.natural",
                 "elementType": "geometry",
                 "stylers": [{
                     "color": "#d0e3b4"
-                    }]
-                }, {
+                }]
+            }, {
                 "featureType": "landscape.natural.terrain",
                 "elementType": "geometry",
                 "stylers": [{
                     "visibility": "off"
-                    }]
-                }, {
+                }]
+            }, {
                 "featureType": "poi",
                 "elementType": "labels",
                 "stylers": [{
                     "visibility": "off"
-                    }]
-                }, {
+                }]
+            }, {
                 "featureType": "poi.business",
                 "elementType": "all",
                 "stylers": [{
                     "visibility": "off"
-                    }]
-                }, {
+                }]
+            }, {
                 "featureType": "poi.medical",
                 "elementType": "geometry",
                 "stylers": [{
                     "color": "#fbd3da"
-                    }]
-                }, {
+                }]
+            }, {
                 "featureType": "poi.park",
                 "elementType": "geometry",
                 "stylers": [{
                     "color": "#bde6ab"
-                    }]
-                }, {
+                }]
+            }, {
                 "featureType": "road",
                 "elementType": "geometry.stroke",
                 "stylers": [{
                     "visibility": "off"
-                    }]
-                }, {
+                }]
+            }, {
                 "featureType": "road",
                 "elementType": "labels",
                 "stylers": [{
                     "visibility": "on"
-                    }]
-                }, {
+                }]
+            }, {
                 "featureType": "road.highway",
                 "elementType": "geometry.fill",
                 "stylers": [{
                     "color": "#ffe15f"
-                    }]
-                }, {
+                }]
+            }, {
                 "featureType": "road.highway",
                 "elementType": "geometry.stroke",
                 "stylers": [{
                     "color": "#efd151"
-                    }]
-                }, {
+                }]
+            }, {
                 "featureType": "road.arterial",
                 "elementType": "geometry.fill",
                 "stylers": [{
                     "color": "#ffffff"
-                    }]
-                }, {
+                }]
+            }, {
                 "featureType": "road.local",
                 "elementType": "geometry.fill",
                 "stylers": [{
                     "color": "black"
-                    }]
-                }, {
+                }]
+            }, {
                 "featureType": "transit.station.airport",
                 "elementType": "geometry.fill",
                 "stylers": [{
                     "color": "#cfb2db"
-                    }]
-                }, {
+                }]
+            }, {
                 "featureType": "water",
                 "elementType": "geometry",
                 "stylers": [{
                     "color": "#a2daf2"
-                    }]
-                }],
-                scrollwheel: false
-            };
-        }
-    }
-  });
+                }]
+            }]
+        };
 
-  Template.maps.onCreated(function() {
-    // We can use the `ready` callback to interact with the map API once the map is ready.
-    GoogleMaps.ready('exampleMap', function(map) {
-      // Add a marker to the map once it's ready
-      var marker = new google.maps.Marker({
-        position: map.options.center,
-        map: map.instance
-      });
-    });
-  });
+        // Get the HTML DOM element that will contain your map 
+        // We are using a div with id="map" seen below in the <body>
+        var mapElement = document.getElementById('map');
+        console.log(document.getElementById('map'));
+        // Create the Google Map using our element and options defined above
+        var map = new google.maps.Map(mapElement, mapOptions);
+
+        //closes if any click on blank area
+
+        // Let's also add a marker while we're at it
+        for (var i = 0; i < eData.length; i++) {
+            console.log(eData.length);
+            var materialString = '<div class="card">' + '<div class="image">' + '<span id="item-title" class="title">' + eData[i].title + '</span>' + '</div>' + '<div class="action"> <a href="' + 'http://www.cnn.com/' + '">Go To Item</a> <a href="' + '/profile' + '">Seller Data</a></div></div>';
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(eData[i].loc.lat, eData[i].loc.lon),
+                map: map,
+                title: eData[i].title,
+                data: materialString,
+                icon: "http://i.imgur.com/22vv42W.png"
+            });
+            marker.info = new InfoBubble({
+                map: map,
+                content: materialString,
+                position: new google.maps.LatLng(eData[i].loc.lat, eData[i].loc.lon),
+                shadowStyle: 0,
+                padding: 0,
+                margin: 0,
+                backgroundColor: 'rgba(57,57,57, 0.0)',
+                borderRadius: 5,
+                arrowSize: 10,
+                borderWidth: 0,
+                borderColor: '#2c2c2c',
+                disableAutoPan: true,
+                hideCloseButton: true,
+                arrowPosition: 50,
+                backgroundClassName: 'transparent',
+                arrowStyle: 0,
+                arrowSize: 15,
+                minHeight: 250,
+                maxHeight: 400,
+                maxWidth: 300,
+            });
+
+            marker.addListener('click', function () {
+                marker.info.open(map, marker);
+            });
+
+        }
+        map.addListener('click', function () {
+            // 	    infowindow.close();
+            marker.info.close();
+        });
+
+    }
+}
+
+Template.maps.prods = function () {
+    return eData;
 }
