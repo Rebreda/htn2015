@@ -4,7 +4,7 @@
     {{#nav title='Item' black=true back=true}}
       {{#if bookmarked}}
         <a href="#" class="nav-item js-remove-bookmark bookmarked"><span class="icon-bookmark"></span></a>
-      {{else}}
+      {{else }}
         <a href="#" class="nav-item js-add-bookmark"><span class="icon-bookmark-hollow"></span></a>
       {{/if}}
       <a href="#" class="nav-item js-share"><span class="icon-camera"></span></a>
@@ -46,16 +46,16 @@
           <a class="btn-primary">SEND EMAIL</a>
       </ul>
 
-      <h2 class="list-title">Purchase Now</h2>
+      <h2 class="list-title">Payment Options</h2>
       <li class="list-directions">
           <form action="https://www.paypal.com/cgi-bin/webscr"  method="post" target="_blank">
             <input type="hidden" name="cmd" value="_s-xclick">
             <input type="hidden" name="hosted_button_id" value="6GMNLBXQP4UY2">
-            <input type="image" src="https://www.paypalobjects.com/webstatic/mktg/logo/bdg_now_accepting_pp_2line_w.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+            <input style="display:block;margin:auto;width:40%" type="image" src="http://www.bingo.org/wp-content/uploads/2015/01/Paypal-Logo-Transparent-png-format-large-size.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
           </form>
 
-          <a class="btn btn-primary btn-large coinbase-button2" data-code="b1cf01734e7acaa207ddd8b9ff75bdf0" data-button-style="custom_large" href="https://www.coinbase.com/checkouts/b1cf01734e7acaa207ddd8b9ff75bdf0" target="_blank">Pay With Bitcoin</a>
+
+          <a data-code="b1cf01734e7acaa207ddd8b9ff75bdf0" data-button-style="custom_large" href="https://www.coinbase.com/checkouts/b1cf01734e7acaa207ddd8b9ff75bdf0" target="_blank"><input style="display:block;margin:auto;width:40%" type="image" src="https://www.coinbase.com/assets/press/coinbase-logos/coinbase.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"></a>
           <!-- <li class="item-direction">
           </li> -->
       </li>
@@ -70,8 +70,8 @@
           {{> activity}}
         {{else}}
           <div class="wrapper-message">
-            <div class="title-message">No feed activity yet</div>
-            <div class="subtitle-message">Be the first to share that you made this recipe. <a class="js-share">Share now</a></div>
+            <div class="title-message">No pictures added</div>
+            <div class="subtitle-message"><a class="js-share">Share this post now</a></div>
           </div>
         {{/each}}
       </div>

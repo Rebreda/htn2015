@@ -1,6 +1,6 @@
-<!-- <template name="new-listing">
+<template name="newListing">
   <div class="page about">
-    {{> nav title='New Listing' black=true}}
+  {{> nav title='New Listing' black=true}}
 
     <div class="content-scrollable">
       <div class="bg-image about">
@@ -8,95 +8,47 @@
           <img src="img/app/title-about.svg" alt="Go Local"/>
         </h1>
       </div>
-      <div class="description-about">
-        <p>Be a local wherever you go. Connect to Local Market’s community to get the latest news, hand-picked recipes, and share with other locals. This season's recipes were chosen by San Francisco chefs Colin Kull of <a href="http://www.rangesf.com/" target="_blank" class="js-open">Range</a>, Laurie Ellen Pellicano of <a href="http://www.tartinebakery.com/" target="_blank" class="js-open">Tartine Bakery</a>, and Ren Rossini of <a href="http://www.fattedcalf.com/"  target="_blank" class="js-open">Fatted Calf</a>.</p>
 
-        <p>Local Market was made by <a href="http://percolatestudio.com" target="_blank" class="js-open">Percolate Studio</a> as an example of a cross platform mobile app built in <a href="https://www.meteor.com" target="_blank" class="js-open">Meteor</a>. The entire app is less than 1,000 lines of JavaScript. View the source on <a href="https://github.com/meteor/meteor/tree/devel/examples/localmarket" target="_blank" class="js-open">GitHub</a>.</p>
-      </div>
+      <h2 class="list-title">Post New Listing</h2>
 
-    </div>
-    <a class="btn-primary js-open" target="_blank">Submit</a>
-  </div>
-</template> -->
+      <form>
+        <div class="input-symbol">
+          <span>Title: </span>
+          <input name="title" placeholder="" />
+        </div>
 
+        <div class="input-symbol ">
+          <span>Description: </span>
+          <input name="description" placeholder="" />
+        </div>
 
-<template name="newListing">
+        <div class="input-symbol">
+          <span>Location Lat: </span>
+          <input name="lat" placeholder="" />
+        </div>
 
-  <div class="page recipe {{activeTabClass}}">
-    {{#nav title='Item' black=true back=true}}
-      {{#if bookmarked}}
-        <a href="#" class="nav-item js-remove-bookmark bookmarked"><span class="icon-bookmark"></span></a>
-      {{else}}
-        <a href="#" class="nav-item js-add-bookmark"><span class="icon-bookmark-hollow"></span></a>
-      {{/if}}
-      <a href="#" class="nav-item js-share"><span class="icon-camera"></span></a>
-    {{/nav}}
+        <div class="input-symbol">
+          <span>Location lon: </span>
+          <input name="lon" placeholder="" />
+        </div>
 
-    <div class="image-recipe" style="background-image: url('{{recipeImage recipe=this size='full'}}')"></div>
+        <div class="input-symbol">
+          <span>Images: </span>
+          <input name="images" placeholder="" />
+        </div>
 
-    <div class="attribution-recipe js-uncollapse">
-      <h1 class="title-recipe">{{title}}</h1>
-      <div class="metadata-wrapper">
-        <p class="description-recipe">{{excerpt}}</p>
-        <span class="source">{{source.name}}</span>
-        <span class="time">{{cookTime}}</span>
-      </div>
+        <div class="input-symbol">
+          <span>Category: </span>
+          <input name="category" placeholder="" />
+        </div>
 
-      <div class="btns-group">
-        <a class="btn-secondary {{#if isActiveTab 'make'}}active{{/if}} {{#if isActiveTab 'recipe'}}no-state{{/if}} js-show-recipe">Information</a>
-        <a class="btn-secondary {{#if isActiveTab 'feed'}}active{{/if}} {{#if isActiveTab 'recipe'}}no-state{{/if}} js-show-feed">Pictures</a>
-      </div>
-    </div>
+        <div class="input-symbol">
+          <span>Price: </span>
+          <input name="price" placeholder="" />
+        </div>
 
-
-    <div class="content-scrollable static-nav make-scrollable">
-      <!-- <a class="btn-tertiary js-share"><span class="icon-camera"></span> Share that you made this</a> -->
-
-      <h2 class="list-title">About this listing</h2>
-      <ul class="list-ingredients">
-        {{#each ingredients}}
-          <li class="item-ingredient">{{this}}</li>
-        {{/each}}
-      </ul>
-
-      <h2 class="list-title">Contact Info</h2>
-      <ul class="list-ingredients">
-        {{#each directions}}
-          <li class="item-ingredient">{{this}}</li>
-        {{/each}}
-        
-          <a class="btn-primary">SEND EMAIL</a>
-      </ul>
-
-      <h2 class="list-title">Purchase Now</h2>
-      <li class="list-directions">
-          <form action="https://www.paypal.com/cgi-bin/webscr"  method="post" target="_blank">
-            <input type="hidden" name="cmd" value="_s-xclick">
-            <input type="hidden" name="hosted_button_id" value="6GMNLBXQP4UY2">
-            <input type="image" src="https://www.paypalobjects.com/webstatic/mktg/logo/bdg_now_accepting_pp_2line_w.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-          </form>
-
-          <a class="btn btn-primary btn-large coinbase-button2" data-code="b1cf01734e7acaa207ddd8b9ff75bdf0" data-button-style="custom_large" href="https://www.coinbase.com/checkouts/b1cf01734e7acaa207ddd8b9ff75bdf0" target="_blank">Pay With Bitcoin</a>
-          <!-- <li class="item-direction">
-          </li> -->
-      </li>
-      <!-- <a href="{{source.url}}" target="_blank" class="btn-primary js-open">See full recipe on {{source.name}}</a> -->
-      {{>maps}}
-    </div>
-
-    <div class="content-scrollable static-nav feed-scrollable">
-      <!-- <a class="btn-tertiary js-share"><span class="icon-camera"></span> Share that you made this</a> -->
-      <div class="list-activities">
-        {{#each activities}}
-          {{> activity}}
-        {{else}}
-          <div class="wrapper-message">
-            <div class="title-message">No feed activity yet</div>
-            <div class="subtitle-message">Be the first to share that you made this recipe. <a class="js-share">Share now</a></div>
-          </div>
-        {{/each}}
-      </div>
+        <button type="submit" class="btn-primary">Submit</button>
+      </form>
     </div>
   </div>
 </template>

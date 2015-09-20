@@ -1,8 +1,40 @@
+<!-- <template name="home">
+    <div class="page home">
+
+        {{>nav title='Local Market' black=true}}
+
+        <div class="content-scrollable">
+          <div class="bg-image home">
+            <h1 class="title-home">
+              <img src="img/app/logo-local.svg" alt="Local Market"/>
+            </h1>
+            <span class="arrow"></span>
+          </div>
+
+          <div class="callout-news">
+            <span class="title-callout">News</span>
+          </div>
+        </div>
+    </div>
+</template> -->
+
+
 <template name="recipes">
-  <div class="page recipes">
-    {{> nav title='Recipes' black=true}}
+  <div class="page home">
+    {{> nav title='losocco' black=true}}
 
     <div class="content-scrollable">
+      <div class="bg-image home">
+        <h1 class="title-home">
+          <img src="img/app/logo-local.svg" alt="Local Market"/>
+        </h1>
+        <span class="arrow"></span>
+      </div>
+
+      <div class="callout-news">
+        <span class="title-callout">Hot Items</span>
+      </div>
+
       <div class="list-recipes">
         {{#each this}}
           {{#if highlighted}}
