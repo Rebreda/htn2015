@@ -39,7 +39,7 @@ var eData = [{
         "lon": -80.538130
     },
     "pictures": {
-        "pic1": "https://s16-us2.ixquick.com/cgi-bin/serveimage?url=http%3A%2F%2Fwww.smartphonenet.nl%2Fwp-content%2Fuploads%2F2014%2F04%2Flg-nexus-5.png&sp=7f288f0198c438b76d4753b18e76476c",
+        "pic1": "https://placeholdit.imgix.net/~text?txtsize=33&txt=temp&w=100&h=100",
         "pic2": "http://i.imgur.com/PlbDu4e.jpg"
     },
     "filters": ["phone", "electronics"],
@@ -64,14 +64,14 @@ var eData = [{
     "name": "Andrew Hou",
     "email": "myEmail@losoc.co"
 }, {
-    "title": "NEW COOL SWAG PHONE.",
-    "description": "Sick new iphone 5. Like legit dope. Hit me up a text or email or something. I just want to talk 2 someome. ",
+    "title": "New Toaster. BNIB",
+    "description": " New toaster, just like title said.. ",
     "loc": {
         "lat": 43.475751,
         "lon": -80.548230
     },
     "pictures": {
-        "pic1": "https://s15-us2.ixquick.com/cgi-bin/serveimage?url=http%3A%2F%2F4.bp.blogspot.com%2F-iUHwllu1x80%2FUQ0vitpAYII%2FAAAAAAAAIYE%2Fc4uojtvx0sg%2Fs1600%2Fblackberry-q10-phone-images.jpg&sp=bc098e1a0aca62748f483860e7abf129",
+        "pic1": "https://placeholdit.imgix.net/~text?txtsize=33&txt=temp&w=100&h=100",
         "pic2": "http://i.imgur.com/PlbDu4e.jpg"
     },
     "filters": ["phone", "electronics"],
@@ -87,7 +87,7 @@ var eData = [{
         "lon": -80.518230
     },
     "pictures": {
-        "pic1": "https://s16-us2.ixquick.com/cgi-bin/serveimage?url=http%3A%2F%2Fwww.optimaitalia.com%2Fblog%2Fwp-content%2Fuploads%2F2012%2F12%2FiPhone-56.jpg&sp=bf22839b71d2a8edb58c33b483bed535",
+        "pic1": "https://placeholdit.imgix.net/~text?txtsize=33&txt=temp&w=100&h=100",
         "pic2": "http://i.imgur.com/PlbDu4e.jpg"
     },
     "filters": ["phone", "electronics"],
@@ -104,7 +104,7 @@ Template.maps.prods = function () {
 Template.maps.rendered = function () {
     // When the window has finished loading create our google map below
     google.maps.event.addDomListener(window, 'load', init);
-
+    //    init();
     var dd = eData;
     console.log(eData);
 
