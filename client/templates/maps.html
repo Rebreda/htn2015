@@ -1,6 +1,21 @@
 <template name="maps">
+    <div id="map"></div>
+
     <div class="map-container">
-        <!-- {{> googleMap name="maps" options=mapOptions}} -->
-        {{> googleMap name="exampleMap" options=exampleMapOptions}}
+
+        {{#each prods}}
+        <div class='big'>
+            <h3 class='title2'> {{this.title}} </h3>
+            <div class="a">
+                <img class='i' src={{this.pictures.pic1}}>
+                <div class="b">
+                    <p><em>{{this.price}}</em> | {{this.phone}}</p>
+                    <p> {{this.description}}</p>
+                </div>
+            </div>
+            <div class='c'></div>
+            <hr>
+        </div>
+        {{/each}}
     </div>
 </template>

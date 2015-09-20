@@ -1,60 +1,79 @@
 <template name="appBody">
-  <div id="container" class="{{menuOpen}} {{overlayOpen}}">
-    <section id="menu" class="overthrow">
-      <a href="{{pathFor 'recipes'}}" class="{{activePage 'recipes'}}">
-        <span class="wrapper-menu-item">
-          <span class="fa fa-home fa-lg"></span>
-          <span class="title-menu">Home</span>
-        </span>
-      </a>
-      <a href="{{pathFor 'feed'}}" class="{{activePage 'feed'}}">
-        <span class="wrapper-menu-item">
-          <span class="fa fa-search fa-lg"></span>
-          <span class="title-menu">Search</span>
-        </span>
-      </a>
-      <a href="{{pathFor 'new-listing'}}" class="{{activePage 'new-listing'}}">
-        <span class="wrapper-menu-item">
-          <span class="fa fa-plus fa-lg"></span>
-          <span class="title-menu">New Listing</span>
-        </span>
-      </a>
-      <a href="{{pathFor 'profile'}}" class="{{activePage 'profile'}}">
-        <span class="wrapper-menu-item">
-          <span class="fa fa-user fa-lg"></span>
-          <span class="title-menu">Profile</span>
-        </span>
-      </a>
-      <a href="{{pathFor 'bookmarks'}}" class="{{activePage 'bookmarks'}}">
-        <span class="wrapper-menu-item">
-          <span class="fa fa-bookmark fa-lg"></span>
-          <span class="title-menu">Bookmarks</span>
-        </span>
-      </a>
-    </section>
+    <div class="wrapper-welcome">
+        <div class="title-welcome">Lo<em>Socco</em></div>
+        <div class="description-welcome"> Lo<em>Socco</em> is the best of the mobile commerce business with a strong <em>emphasize</em> on local. Beautifully crafted in 36 hours at Hack The North 2015 by 4 amazing individuals.
+        </div>
 
-      <div class="notifications">
-        {{#unless connected}}
-          <div class="notification">
-            <span class="icon-sync"></span>
-            <div class="title-notification">Trying to connect</div>
-          </div>
-        {{/unless}}
-        {{#each notifications}}
-          <div class="notification">
-            <a class="btn-primary js-notification-action">{{action}}</a>
-            <div class="title-notification">{{title}}</div>
-          </div>
-        {{/each}}
-      </div>
+        <div class="description-welcome">
+            The app is designed to run on a physical device, where it uses the hardware's native camera and GPS support.
+        </div>
 
-    {{> overlay}}
+        <div class="description-welcome">
+            We take the basic buyer/seller paradigm and add our own flavour of security, accessibility, automation and lots of colour.
+        </div>
 
-    <div class="content-overlay"></div>
+        <div class="description-welcome">
+            No money transactions are needed - pay with paypal or bitcoin. Sellers can be held accountable after funds are exchanged and communities decide who can sell and who can't.
+        </div>
 
-    <div id="content-container">
-      {{> yield}}
+        <div class="description-welcome">
+            <b> Gabriel Habayeb | Andrew Paradi | Kevin Hou | Delia Lazarescu</b> </div>
     </div>
+    <div id="container" class="{{menuOpen}} {{overlayOpen}}">
+        <section id="menu" class="overthrow">
+            <a href="{{pathFor 'recipes'}}" class="{{activePage 'recipes'}}">
+                <span class="wrapper-menu-item">
+          <span class="icon-home"></span>
+                <span class="title-menu">Home</span>
+                </span>
+            </a>
+            <a href="{{pathFor 'feed'}}" class="{{activePage 'feed'}}">
+                <span class="wrapper-menu-item">
+          <span class="icon-rss"></span>
+                <span class="title-menu">Search</span>
+                </span>
+            </a>
+            <a href="{{pathFor 'new-listing'}}" class="{{activePage 'new-listing'}}">
+                <span class="wrapper-menu-item">
+          <span class="icon-question"></span>
+                <span class="title-menu">New Listing</span>
+                </span>
+            </a>
+            <a href="{{pathFor 'bookmarks'}}" class="{{activePage 'bookmarks'}}">
+                <span class="wrapper-menu-item">
+          <span class="icon-bookmark-hollow"></span>
+                <span class="title-menu">Bookmarks</span>
+                </span>
+            </a>
+            <a href="{{pathFor 'profile'}}" class="{{activePage 'profile'}}">
+                <span class="wrapper-menu-item">
+          <span class="icon-question"></span>
+                <span class="title-menu">Profile</span>
+                </span>
+            </a>
+        </section>
 
-  </div>
+        <div class="notifications">
+            {{#unless connected}}
+            <div class="notification">
+                <span class="icon-sync"></span>
+                <div class="title-notification">Trying to connect</div>
+            </div>
+            {{/unless}} {{#each notifications}}
+            <div class="notification">
+                <a class="btn-primary js-notification-action">{{action}}</a>
+                <div class="title-notification">{{title}}</div>
+            </div>
+            {{/each}}
+        </div>
+
+        {{> overlay}}
+
+        <div class="content-overlay"></div>
+
+        <div id="content-container">
+            {{> yield}}
+        </div>
+
+    </div>
 </template>
