@@ -96,6 +96,11 @@ var eData = [{
     "name": "Andrew Hou",
     "email": "myEmail@losoc.co"
 }]
+
+Template.maps.prods = function () {
+    return eData;
+}
+
 Template.maps.rendered = function () {
     // When the window has finished loading create our google map below
     google.maps.event.addDomListener(window, 'load', init);
@@ -220,7 +225,7 @@ Template.maps.rendered = function () {
         // Let's also add a marker while we're at it
         for (var i = 0; i < eData.length; i++) {
             console.log(eData.length);
-            var materialString = '<div class="card">' + '<div class="image">' + '<span id="item-title" class="title">' + eData[i].title + '</span>' + '</div>' + '<div class="action"> <a href="' + 'http://www.cnn.com/' + '">Go To Item</a> <a href="' + '/profile' + '">Seller Data</a></div></div>';
+            var materialString = '<div class="card">' + '<div class="image">' + '<div id="item-title" class="title">' + eData[i].title + '</div>' + '</div>' + '<div class="action"> <a href="' + 'http://www.cnn.com/' + '">Go To Item</a> | <a href="' + '/profile' + '">Seller Data</a></div></div>';
             var marker = new google.maps.Marker({
                 position: new google.maps.LatLng(eData[i].loc.lat, eData[i].loc.lon),
                 map: map,
@@ -232,23 +237,11 @@ Template.maps.rendered = function () {
                 map: map,
                 content: materialString,
                 position: new google.maps.LatLng(eData[i].loc.lat, eData[i].loc.lon),
-                shadowStyle: 0,
-                padding: 0,
-                margin: 0,
-                backgroundColor: 'rgba(57,57,57, 0.0)',
-                borderRadius: 5,
-                arrowSize: 10,
-                borderWidth: 0,
-                borderColor: '#2c2c2c',
-                disableAutoPan: true,
+                backgroundColor: '#fff',
+                minHeight: 50,
+                maxHeight: 50,
                 hideCloseButton: true,
-                arrowPosition: 50,
-                backgroundClassName: 'transparent',
-                arrowStyle: 0,
-                arrowSize: 15,
-                minHeight: 250,
-                maxHeight: 400,
-                maxWidth: 300,
+                maxWidth: 300
             });
 
             marker.addListener('click', function () {
@@ -264,6 +257,4 @@ Template.maps.rendered = function () {
     }
 }
 
-Template.maps.prods = function () {
-    return eData;
-}
+//location.reload();
